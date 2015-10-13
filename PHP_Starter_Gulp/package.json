@@ -1,0 +1,22 @@
+{
+  "name": "elysee",
+  "version": "1.0.0",
+  "description": "Final Site Build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cosmic Strawberry",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.9.11",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.6",
+    "yargs": "^3.27.0"
+  }
+}
