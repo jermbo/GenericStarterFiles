@@ -42,7 +42,8 @@ module.exports = () => {
                             browsers: ['last 4 versions']
                         }
                     }]
-                ]
+                ],
+                plugins: ['transform-object-rest-spread']
             },
             sass: {
                 outputStyle: 'compressed' // 'expanded'
