@@ -1,0 +1,125 @@
+::selection {
+    background: $brand-secondary;
+    color: $text-color-light;
+}
+
+body {
+    line-height: $line-height;
+    font-family: $font-title;
+    font-size: $font-size-text;
+    color: $text-color-dark;
+}
+
+ol,
+ul {
+    margin: 0;
+    left: 0;
+}
+
+a {
+    @include transition($transition-time: 0.15s);
+}
+
+p {
+    margin: $padding/2 0 0;
+    font-weight: $font-weight-light;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $font-weight-medium;
+    line-height: $line-height;
+    margin-bottom: $padding/2;
+}
+
+h1 {
+    font-size: $font-size-xxl;
+}
+
+h2 {
+    font-size: $font-size-xl;
+}
+
+h3 {
+    font-size: $font-size-lg;
+}
+
+h4 {
+    font-size: $font-size-md;
+}
+
+h5 {
+    font-size: $font-size-sm;
+}
+
+h6 {
+    font-size: $font-size-xs;
+}
+
+b,
+strong {
+    font-weight: $font-weight-bold;
+}
+
+blockquote {
+    position: relative;
+    background: $off-white;
+    padding: $padding $padding $padding $padding*2;
+    margin: $padding 0;
+    z-index: 1;
+    &:before {
+        content: '"';
+        font-size: 8rem;
+        position: absolute;
+        z-index: 0;
+        top: $padding*2;
+        left: $padding*2;
+        color: $gray;
+        opacity: 0.25;
+    }
+    &:after {
+        content: '';
+        width: 1rem;
+        height: 100%;
+        background: $gray;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+// sass-lint:disable-all
+.visible {
+    display: block !important;
+}
+// TODO:
+// Figure out a way to turn this into a mixing and
+// loop through all the break points defined in the
+// variables
+.hidden {
+    display: none !important;
+    &--xs {
+        @include max-screen('xs') {
+            display: none !important;
+        }
+    }
+    &--sm {
+        @include max-screen('sm') {
+            display: none !important;
+        }
+    }
+    &--md {
+        @include max-screen('md') {
+            display: none !important;
+        }
+    }
+    &--lg {
+        @include max-screen('lg') {
+            display: none !important;
+        }
+    }
+}

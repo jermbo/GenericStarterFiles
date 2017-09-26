@@ -1,0 +1,27 @@
+{
+  "name": "generic_starter",
+  "version": "1.0.0",
+  "description": "A generic starting structure for simple sites. This is also meant to be a good starting point for more complex sites that have different file structures. Feel free to augment and adopt to your situation.",
+  "main": "index.js",
+  "author": "Jermbo",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-changed": "^3.1.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-jsbeautifier": "^2.1.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-task-listing": "^1.0.1",
+    "run-sequence": "^2.2.0",
+    "yargs": "^9.0.1"
+  }
+}
