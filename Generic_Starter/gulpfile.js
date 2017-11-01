@@ -33,6 +33,7 @@ gulp.task('task:compile-styles', () => {
 gulp.task('task:compile-scripts', () => {
     return gulp
         .src(config.scripts.source)
+        .pipe(errorHandler())
         .pipe($.changed(config.scripts.build))
         .pipe($.babel(config.options.babelEnvOptions))
         .pipe(gulp.dest(config.scripts.build))
