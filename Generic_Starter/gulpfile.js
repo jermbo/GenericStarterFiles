@@ -14,7 +14,7 @@ gulp.task('help', $.taskListing);
 // Global Jobs
 gulp.task('__start-local__', ['task:compile-styles', 'task:compile-scripts', 'task:compile-html', 'task:compile-images', 'task:start-watch']);
 gulp.task('__compile-assets__', ['task:compile-styles', 'task:compile-scripts', 'task:compile-html', 'task:compile-images']);
-gulp.task('__lint-everything__', ['_lint-styles_','_lint-feature-styles_', '_lint-scripts_']);
+gulp.task('__lint-everything__', ['_lint-styles_', '_lint-scripts_']);
 
 ////////////////
 // Local Tasks
@@ -24,7 +24,7 @@ gulp.task('task:compile-styles', () => {
         .pipe(errorHandler())
         .pipe($.sourcemaps.init())
         .pipe($.sass(config.options.sass))
-        .pipe($.autoprefixer(config.autoPrefixerOptions))
+        .pipe($.autoprefixer(config.options.autoPrefixerOptions))
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest(config.styles.build))
         .pipe(browserSync.stream());
@@ -33,6 +33,7 @@ gulp.task('task:compile-styles', () => {
 gulp.task('task:compile-scripts', () => {
     return gulp
         .src(config.scripts.source)
+        .pipe(errorHandler())
         .pipe($.changed(config.scripts.build))
         .pipe($.babel(config.options.babelEnvOptions))
         .pipe(gulp.dest(config.scripts.build))
@@ -86,6 +87,10 @@ gulp.task('task:page-reload', () => {
 ///////////////////
 // Linting Tasks
 
+gulp.task('_lint-styles', () => {
+    runSequence('clean:sass', 'lint:sass');
+});
+
 gulp.task('clean:sass', () => {
     return gulp
         .src(config.styles.source)
@@ -102,18 +107,17 @@ gulp.task('lint:sass', () => {
         .pipe($.sassLint.format());
 });
 
+gulp.task('_lint-scripts_', () => {
+    runSequence('clean:js', 'lint:js');
+});
+
 gulp.task('clean:js', () => {
-    console.log(`
-
-        ${config.scripts.source}
-
-    `)
     return gulp
         .src(config.scripts.source)
         .pipe($.changed(config.scripts.source))
         .pipe($.jsbeautifier(config.options.formatting))
         .pipe($.jsbeautifier.reporter())
-        .pipe(gulp.dest(env.srcPath + '/scripts'));
+        .pipe(gulp.dest(`${env.srcPath}/scripts`));
 });
 
 gulp.task('lint:js', () => {
