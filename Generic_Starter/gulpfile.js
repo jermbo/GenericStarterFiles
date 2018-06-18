@@ -104,11 +104,6 @@ gulp.task('lint:sass', () => {
 });
 
 gulp.task('clean:js', () => {
-    console.log(`
-
-        ${config.scripts.source}
-
-    `)
     return gulp
         .src(config.scripts.source)
         .pipe($.changed(config.scripts.source))
