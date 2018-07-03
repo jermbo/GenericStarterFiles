@@ -1,9 +1,9 @@
 {
-  "name": "elysee",
+  "name": "wordpress-generic-starter",
   "version": "1.0.0",
   "description": "Final Site Build",
   "main": "index.js",
-  "author": "Cosmic Strawberry",
+  "author": "Jeremy 'Jermbo' Lawson",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",

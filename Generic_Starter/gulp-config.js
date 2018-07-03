@@ -3,12 +3,12 @@ const env = require('./gulp-env')();
 module.exports = () => {
     const config = {
         html: {
-            source: `${env.srcPath}/**/*.{html, htm, php}`,
+            source: `${env.srcPath}/**/*.{html,htm,php,cshtml}`,
             lintPath: `${env.srcPath}/`,
             build: `${env.buildPath}/`
         },
         styles: {
-            source: `${env.srcPath}/styles/**/*.{scss, sass, css}`,
+            source: `${env.srcPath}/styles/**/*.{scss,sass,css}`,
             lintPath: `${env.srcPath}/styles/`,
             build: `${env.buildPath}/styles/`
         },
@@ -18,7 +18,7 @@ module.exports = () => {
             build: `${env.buildPath}/scripts/`
         },
         images: {
-            source: `${env.srcPath}/images/**/*.{jpg, JPG, jpeg, JPEG, png, PNG, gif, GIF, svg}`,
+            source: `${env.srcPath}/images/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg}`,
             build: `${env.buildPath}/images/`
         },
         browserSync: {
@@ -46,7 +46,7 @@ module.exports = () => {
                 plugins: ['transform-object-rest-spread']
             },
             sass: {
-                outputStyle: 'compressed' // 'expanded'
+                outputStyle: 'compressed'
             },
             formatting: {
                 'indent_size': 4,
@@ -174,7 +174,7 @@ module.exports = () => {
                 },
                 sass: {
                     options: {
-                        formatter: 'stylish',
+                        'formatter': 'stylish',
                         'merge-default-rules': true
                     },
                     rules: {
@@ -206,56 +206,6 @@ module.exports = () => {
                         }],
                         'single-line-per-selector': 0,
                         'force-pseudo-nesting': 0
-                    }
-                },
-                html: {
-                    rules: {
-                        "attr-bans": 0,
-                        "attr-name-ignore-regex": 0,
-                        "attr-name-style": 0,
-                        "attr-new-line": 0,
-                        "attr-no-dup": 0,
-                        "attr-no-unsafe-char": 0,
-                        "attr-order": 0,
-                        "attr-quote-style": 0,
-                        "attr-req-value": 0,
-                        "class-no-dup": 0,
-                        "class-style": 0,
-                        "doctype-first": 0,
-                        "doctype-html5": 0,
-                        "fig-req-figcaption": 0,
-                        "focusable-tabindex-style": 0,
-                        "head-req-title": 0,
-                        "head-valid-content-model": 0,
-                        "href-style": 0,
-                        "html-req-lang": 0,
-                        "html-valid-content-model": 0,
-                        "id-class-ignore-regex": 0,
-                        "id-class-no-ad": 0,
-                        "id-class-style": 0,
-                        "id-no-dup": 0,
-                        "img-req-alt": 0,
-                        "img-req-src": 0,
-                        "indent-style": 0,
-                        "indent-width": 0,
-                        "indent-width-cont": 0,
-                        "input-radio-req-name": 0,
-                        "input-req-label": 0,
-                        "label-req-for": 0,
-                        "lang-style": 0,
-                        "line-end-style": 0,
-                        "line-max-len": 0,
-                        "line-max-len-ignore-regex": 0,
-                        "spec-char-escape": 0,
-                        "table-req-caption": 0,
-                        "table-req-header": 0,
-                        "tag-bans": 0,
-                        "tag-close": 0,
-                        "tag-name-lowercase": 0,
-                        "tag-name-match": 0,
-                        "tag-self-close": 0,
-                        "title-max-len": 0,
-                        "title-no-dup": 0
                     }
                 }
             }
