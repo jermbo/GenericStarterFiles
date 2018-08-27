@@ -93,7 +93,7 @@ gulp.task("task:start-node", cb => {
     })
     .on("restart", () => {
       setTimeout(() => {
-        $.reload({ stream: false });
+        browserSync.reload({ stream: false });
       }, 500);
     });
 });
