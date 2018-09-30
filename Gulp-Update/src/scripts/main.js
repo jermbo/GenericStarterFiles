@@ -4,7 +4,7 @@ console.log(something);
 const person = {
   firstName: "jerm",
   lastName: "law",
-  age: 33
+  age: 33,
 };
 
 let thing;
