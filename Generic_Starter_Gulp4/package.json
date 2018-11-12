@@ -1,13 +1,13 @@
 {
-  "name": "gulptests",
+  "name": "generic_starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "A generic starting structure for simple sites. This is also meant to be a good starting point for more complex sites that have different file structures. Feel free to augment and adopt to your situation.",
   "main": "index.js",
+  "author": "Jeremy 'Jermbo' Lawson",
+  "license": "MIT",
   "scripts": {
     "dev": "node ./node_modules/.bin/gulp"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
