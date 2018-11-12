@@ -4,8 +4,22 @@ console.log(something);
 const person = {
   firstName: "jerm",
   lastName: "law",
-  age: 33,
+  age: 33
 };
+
+const obj = {
+  foo: {
+    bar: {
+      baz: 42
+    }
+  }
+};
+
+const baz = obj?.foo?.bar?.baz; // 42
+
+const safe = obj?.qux?.baz; // undefined
+console.log(baz);
+console.log(safe);
 
 let thing;
 
