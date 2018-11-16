@@ -46,7 +46,7 @@ const Tasks = (function() {
     compileStyles: compileStyles,
     compileScripts: compileScripts,
     compileHTML: compileHTML,
-    compileImages: compileImages
+    compileImages: compileImages,
   };
 })();
 
@@ -59,7 +59,7 @@ const Server = (function() {
   function start(next) {
     if (env.devURL == "./") {
       config.browserSync["server"] = {
-        baseDir: `${env.buildPath}/`
+        baseDir: `${env.buildPath}/`,
       };
     } else {
       config.browserSync["proxy"] = env.devURL;
@@ -69,7 +69,7 @@ const Server = (function() {
   }
   return {
     reload: reload,
-    start: start
+    start: start,
   };
 })();
 
@@ -91,7 +91,7 @@ const Jobs = (function() {
         $.notify.onError({
           title: `Error : ${err.plugin}`,
           message: `Issue : ${err}`,
-          sound: false
+          sound: false,
         })(err);
 
         console.log(`
@@ -105,14 +105,14 @@ const Jobs = (function() {
 
   `);
         this.emit("end");
-      }
+      },
     });
   }
 
   return {
     clean: clean,
     watch: watch,
-    error: errorHandler
+    error: errorHandler,
   };
 })();
 
@@ -122,6 +122,6 @@ gulp.task(
     Jobs.clean,
     gulp.parallel(Tasks.compileStyles, Tasks.compileHTML, Tasks.compileScripts, Tasks.compileImages),
     Server.start,
-    Jobs.watch
-  )
+    Jobs.watch,
+  ),
 );
