@@ -5,19 +5,19 @@ module.exports = () => {
   const config = {
     html: {
       source: `${env.srcPath}/**/*.{html,htm,php,cshtml}`,
-      build: `${env.buildPath}/`
+      build: `${env.buildPath}/`,
     },
     styles: {
       source: `${env.srcPath}/sass/**/*.{sass,scss,css}`,
-      build: `${env.buildPath}/styles/`
+      build: `${env.buildPath}/styles/`,
     },
     scripts: {
       source: `${env.srcPath}/scripts/**/*.js`,
-      build: `${env.buildPath}/scripts/`
+      build: `${env.buildPath}/scripts/`,
     },
     images: {
       source: `${env.srcPath}/images/**/*.{${imgExtensions}}`,
-      build: `${env.buildPath}/images/`
+      build: `${env.buildPath}/images/`,
     },
     browserSync: {
       port: env.port,
@@ -25,11 +25,11 @@ module.exports = () => {
         clicks: true,
         location: true,
         forms: true,
-        scroll: true
+        scroll: true,
       },
       injectChanges: true,
       notify: true,
-      reloadDelay: 0
+      reloadDelay: 0,
     },
     options: {
       autoPrefixerOptions: ["last 4 versions", "> 9%"],
@@ -39,15 +39,15 @@ module.exports = () => {
             "@babel/env",
             {
               targets: {
-                browsers: ["last 2 versions"]
-              }
-            }
-          ]
+                browsers: ["last 2 versions"],
+              },
+            },
+          ],
         ],
-        plugins: ["@babel/plugin-proposal-object-rest-spread"]
+        plugins: ["@babel/plugin-proposal-object-rest-spread"],
       },
       sass: {
-        outputStyle: "compressed"
+        outputStyle: "compressed",
       },
       formatting: {
         indent_size: 4,
@@ -65,10 +65,10 @@ module.exports = () => {
         indent_scripts: "normal",
         wrap_line_length: 0,
         css: {
-          selector_separator_newline: false
-        }
-      }
-    }
+          selector_separator_newline: false,
+        },
+      },
+    },
   };
 
   return config;
