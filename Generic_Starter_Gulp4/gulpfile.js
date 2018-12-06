@@ -125,3 +125,11 @@ gulp.task(
     Jobs.watch,
   ),
 );
+
+gulp.task(
+  "compile-project",
+  gulp.series(
+    Jobs.clean,
+    gulp.parallel(Tasks.compileStyles, Tasks.compileHTML, Tasks.compileScripts, Tasks.compileImages),
+  ),
+);

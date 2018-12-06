@@ -33,19 +33,6 @@ module.exports = () => {
     },
     options: {
       autoPrefixerOptions: ["last 4 versions", "> 9%"],
-      babelEnvOptions: {
-        presets: [
-          [
-            "@babel/env",
-            {
-              targets: {
-                browsers: ["last 2 versions"],
-              },
-            },
-          ],
-        ],
-        plugins: ["@babel/plugin-proposal-object-rest-spread"],
-      },
       sass: {
         outputStyle: "compressed",
       },

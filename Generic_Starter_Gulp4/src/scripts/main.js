@@ -4,15 +4,15 @@ console.log(something);
 const person = {
   firstName: "jerm",
   lastName: "law",
-  age: 33
+  age: 33,
 };
 
 const obj = {
   foo: {
     bar: {
-      baz: 42
-    }
-  }
+      baz: 42,
+    },
+  },
 };
 
 const baz = obj?.foo?.bar?.baz; // 42
