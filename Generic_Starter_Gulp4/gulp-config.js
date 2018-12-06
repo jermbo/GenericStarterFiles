@@ -36,25 +36,6 @@ module.exports = () => {
       sass: {
         outputStyle: "compressed",
       },
-      formatting: {
-        indent_size: 4,
-        indent_char: " ",
-        indent_with_tabs: false,
-        preserve_newlines: true,
-        max_preserve_newlines: 5,
-        space_after_anon_function: true,
-        brace_style: "collapse",
-        break_chained_methods: false,
-        keep_array_indentation: true,
-        end_with_newline: true,
-        operator_position: "before-newline",
-        indent_inner_html: false,
-        indent_scripts: "normal",
-        wrap_line_length: 0,
-        css: {
-          selector_separator_newline: false,
-        },
-      },
     },
   };
 
