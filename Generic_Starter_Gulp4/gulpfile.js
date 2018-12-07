@@ -23,7 +23,7 @@ const Tasks = (function() {
       .src(config.scripts.source)
       .pipe(Jobs.error())
       .pipe($.changed(config.scripts.build))
-      .pipe($.babel(config.options.babelEnvOptions))
+      .pipe($.babel())
       .pipe(gulp.dest(config.scripts.build))
       .pipe(browserSync.stream());
   }
