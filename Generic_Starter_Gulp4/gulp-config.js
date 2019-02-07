@@ -32,7 +32,7 @@ module.exports = () => {
       reloadDelay: 0,
     },
     options: {
-      autoPrefixerOptions: ["last 4 versions", "> 9%"],
+      autoPrefixerOptions: { browsers: ["last 2 versions"], grid: false },
       sass: {
         outputStyle: "compressed",
       },
