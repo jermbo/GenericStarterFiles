@@ -21,7 +21,7 @@ gulp.task("__start-local__", () => {
     "task:compile-scripts",
     "task:compile-html",
     "task:compile-images",
-    "task:start-watch"
+    "task:start-watch",
   );
 });
 gulp.task("__compile-assets__", () => {
@@ -30,7 +30,7 @@ gulp.task("__compile-assets__", () => {
     "task:compile-styles",
     "task:compile-scripts",
     "task:compile-html",
-    "task:compile-images"
+    "task:compile-images",
   );
 });
 gulp.task("__lint-everything__", () => {
@@ -83,7 +83,7 @@ gulp.task("task:start-node", cb => {
   var called = false;
   return $.nodemon({
     script: "app.js",
-    ignore: ["gulpfile.js", "gulp-config.js", "gulp-env.js", "node_modules/"]
+    ignore: ["gulpfile.js", "gulp-config.js", "gulp-env.js", "node_modules/"],
   })
     .on("start", () => {
       if (!called) {
@@ -116,7 +116,7 @@ gulp.task("task:start-watch", ["task:start-browser-sync"], () => {
 gulp.task("task:start-browser-sync", () => {
   if (env.devURL == "./") {
     config.browserSync["server"] = {
-      baseDir: `${env.buildPath}/`
+      baseDir: `${env.buildPath}/`,
     };
   } else {
     config.browserSync["proxy"] = env.devURL;
@@ -181,7 +181,7 @@ function errorHandler() {
       $.notify.onError({
         title: `Error : ${err.plugin}`,
         message: `Issue : ${err}`,
-        sound: false
+        sound: false,
       })(err);
 
       console.log(`
@@ -195,6 +195,6 @@ Issue : ${err}
 
 `);
       this.emit("end");
-    }
+    },
   });
 }

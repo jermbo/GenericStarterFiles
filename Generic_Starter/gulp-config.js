@@ -5,23 +5,21 @@ module.exports = () => {
     html: {
       source: `${env.srcPath}/**/*.{html,htm,php,cshtml}`,
       lintPath: `${env.srcPath}/`,
-      build: `${env.buildPath}/`
+      build: `${env.buildPath}/`,
     },
     styles: {
       source: `${env.srcPath}/styles/**/*.{scss,sass,css}`,
       lintPath: `${env.srcPath}/styles/`,
-      build: `${env.buildPath}/styles/`
+      build: `${env.buildPath}/styles/`,
     },
     scripts: {
       source: `${env.srcPath}/scripts/**/*.js`,
       lintPath: `${env.srcPath}/scripts/`,
-      build: `${env.buildPath}/scripts/`
+      build: `${env.buildPath}/scripts/`,
     },
     images: {
-      source: `${
-        env.srcPath
-      }/images/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg}`,
-      build: `${env.buildPath}/images/`
+      source: `${env.srcPath}/images/**/*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,svg}`,
+      build: `${env.buildPath}/images/`,
     },
     browserSync: {
       port: env.port,
@@ -29,11 +27,11 @@ module.exports = () => {
         clicks: true,
         location: true,
         forms: true,
-        scroll: true
+        scroll: true,
       },
       injectChanges: true,
       notify: true,
-      reloadDelay: 0
+      reloadDelay: 0,
     },
     options: {
       autoPrefixerOptions: ["last 4 versions", "> 9%"],
@@ -43,15 +41,15 @@ module.exports = () => {
             "env",
             {
               targets: {
-                browsers: ["last 4 versions"]
-              }
-            }
-          ]
+                browsers: ["last 4 versions"],
+              },
+            },
+          ],
         ],
-        plugins: ["transform-object-rest-spread"]
+        plugins: ["transform-object-rest-spread"],
       },
       sass: {
-        outputStyle: "compressed"
+        outputStyle: "compressed",
       },
       formatting: {
         indent_size: 4,
@@ -69,8 +67,8 @@ module.exports = () => {
         indent_scripts: "normal",
         wrap_line_length: 0,
         css: {
-          selector_separator_newline: false
-        }
+          selector_separator_newline: false,
+        },
       },
       lint: {
         js: {
@@ -172,35 +170,28 @@ module.exports = () => {
             "padded-blocks": 0,
             "quote-props": 0,
             "sort-vars": 0,
-            "space-before-function-paren": 0
+            "space-before-function-paren": 0,
           },
-          globals: [
-            "jQuery",
-            "$",
-            "TweenLite",
-            "TweenMax",
-            "TimelineLite",
-            "TimelineMax"
-          ],
-          envs: ["browser", "es6"]
+          globals: ["jQuery", "$", "TweenLite", "TweenMax", "TimelineLite", "TimelineMax"],
+          envs: ["browser", "es6"],
         },
         sass: {
           options: {
             formatter: "stylish",
-            "merge-default-rules": true
+            "merge-default-rules": true,
           },
           rules: {
             indentation: [
               1,
               {
-                size: 4
-              }
+                size: 4,
+              },
             ],
             "nesting-depth": [
               1,
               {
-                "max-depth": 4
-              }
+                "max-depth": 4,
+              },
             ], // this would be something i want to flag, i like three deep
             "no-transition-all": 0,
             "no-color-literals": 0,
@@ -208,19 +199,14 @@ module.exports = () => {
             "class-name-format": [
               1,
               {
-                convention: "hyphenatedbem"
-              }
+                convention: "hyphenatedbem",
+              },
             ],
             "no-duplicate-properties": [
               1,
               {
-                exclude: [
-                  "display",
-                  "font-size",
-                  "line-height",
-                  "text-decoration"
-                ]
-              }
+                exclude: ["display", "font-size", "line-height", "text-decoration"],
+              },
             ],
             "mixins-before-declarations": 0,
             "empty-line-between-blocks": 0,
@@ -233,15 +219,15 @@ module.exports = () => {
             "leading-zero": [
               1,
               {
-                include: true
-              }
+                include: true,
+              },
             ],
             "single-line-per-selector": 0,
-            "force-pseudo-nesting": 0
-          }
-        }
-      }
-    }
+            "force-pseudo-nesting": 0,
+          },
+        },
+      },
+    },
   };
 
   return config;

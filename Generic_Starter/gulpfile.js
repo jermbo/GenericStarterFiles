@@ -20,17 +20,11 @@ gulp.task("__start-local__", () => {
     "task:compile-scripts",
     "task:compile-html",
     "task:compile-images",
-    "task:start-watch"
+    "task:start-watch",
   );
 });
 gulp.task("__compile-assets__", () => {
-  runSequence(
-    "clean:build",
-    "task:compile-styles",
-    "task:compile-scripts",
-    "task:compile-html",
-    "task:compile-images"
-  );
+  runSequence("clean:build", "task:compile-styles", "task:compile-scripts", "task:compile-html", "task:compile-images");
 });
 gulp.task("__lint-everything__", () => {
   runSequence("_lint-styles_", "_lint-scripts_");
@@ -96,7 +90,7 @@ gulp.task("task:start-watch", ["task:start-server"], () => {
 gulp.task("task:start-server", () => {
   if (env.devURL == "./") {
     config.browserSync["server"] = {
-      baseDir: `${env.buildPath}/`
+      baseDir: `${env.buildPath}/`,
     };
   } else {
     config.browserSync["proxy"] = env.devURL;
@@ -161,7 +155,7 @@ function errorHandler() {
       $.notify.onError({
         title: `Error : ${err.plugin}`,
         message: `Issue : ${err}`,
-        sound: false
+        sound: false,
       })(err);
 
       console.log(`
@@ -175,6 +169,6 @@ Issue : ${err}
 
 `);
       this.emit("end");
-    }
+    },
   });
 }

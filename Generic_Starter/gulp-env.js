@@ -7,6 +7,6 @@ module.exports = () => {
     srcPath: "./src",
     buildPath: "./build",
     port: yargs.port ? yargs.port : 3000,
-    devURL: yargs.url ? yargs.url : `${siteInstanceName}`
+    devURL: yargs.url ? yargs.url : `${siteInstanceName}`,
   };
 };
