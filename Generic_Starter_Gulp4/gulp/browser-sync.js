@@ -20,5 +20,11 @@ function reload(next){
   next();
 }
 
+function stream(next){
+  browserSync.stream();
+  next();
+}
+
+exports.stream = stream;
 exports.reload = reload;
 exports.serve = startServer;
