@@ -1,7 +1,7 @@
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
 
-const { isProd, input, output } = require("./_config");
+const { input, output } = require("./_config");
 
 const src = `${input}/sass/**/*.{scss,sass}`;
 const dest = `${output}/css`;
@@ -14,9 +14,8 @@ function sass() {
     .pipe($.autoprefixer({ browsers: ["last 2 versions"], grid: false }))
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({title: "Styles"}))
-    // .pipe($.if(isProd, $.cssnano()))
-    // .pipe($.if(isProd, $.rename(fpath => { fpath.basename += "-min"; })))
     .pipe(gulp.dest(dest));
 }
 
+exports.src = src;
 exports.default = sass;

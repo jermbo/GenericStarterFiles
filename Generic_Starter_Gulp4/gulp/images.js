@@ -63,5 +63,5 @@ const images = gulp.series(
   gulp.parallel(copyImagesToDist, copySvgToDist)
 );
 
-
+exports.src = imageInput;
 exports.default = images;

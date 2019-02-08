@@ -13,4 +13,5 @@ function html() {
     .pipe(gulp.dest(dest));
 }
 
+exports.src = src;
 exports.default = html;
