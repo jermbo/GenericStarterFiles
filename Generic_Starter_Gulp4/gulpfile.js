@@ -1,4 +1,4 @@
-require("dotenv");
+require("dotenv").config();
 
 const {series, parallel} = require("gulp");
 const {default: sass} = require("./gulp/sass");
