@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
+const plumber = require("./_plumber");
 
 const { styles } = require("./_config");
 
@@ -10,6 +11,7 @@ function compileStyles() {
   return gulp
     .src(src)
     .pipe($.sourcemaps.init())
+    .pipe(plumber("Error running sass"))
     .pipe($.sass(styles.options.sass))
     .pipe($.autoprefixer(styles.options.autoPrefixer))
     .pipe($.sourcemaps.write("./"))
