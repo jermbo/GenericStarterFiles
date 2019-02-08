@@ -1,11 +1,18 @@
-const config = require("./_config");
+const { buildPath, tmpPath } = require("./_config");
 const del = require("del");
 
-const clean = () => {
+const cleanAll = () => {
   return del([
-    config.output,
-    "./_tmp"
+    buildPath,
+    tmpPath
   ]);
 };
 
-module.exports = clean;
+function cleanTmp() {
+  return del([
+    tmpPath
+  ]);
+}
+
+exports.cleanTmp = cleanTmp;
+exports.cleanAll = cleanAll;

@@ -2,17 +2,18 @@ const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
 const resizer = require("@zellwk/resize-images");
 
+const { images, tmpPath } = require("./_config");
 
-const {input, output, imageSizes } = require("./_config");
+const src = images.source;
+const build = images.build;
+const imageSizes = images.sizes;
 
-const imageInput = `${input}/images/**/*`;
-const tmpOutput = "./_tmp/minified";
-const tmpOutput2 = "./_tmp/resized";
-const imageOutput = `${output}/images`;
+const tmpOutput = `${tmpPath}/minified`;
+const tmpOutput2 = `${tmpPath}/resized`;
 
 function jpegToWebp () {
   return gulp
-    .src(`${imageInput}.{jpeg,jpg}`)
+    .src(`${src}.{jpeg,jpg}`)
     .pipe($.newer({ dest: tmpOutput, ext: ".webp" }))
     .pipe($.webp({ quality: 80 }))
     .pipe(gulp.dest(tmpOutput));
@@ -20,7 +21,7 @@ function jpegToWebp () {
 
 function pngToWebp() {
   return gulp
-    .src(`${imageInput}.png`)
+    .src(`${src}.png`)
     .pipe($.newer({ dest: tmpOutput, ext: ".webp" }))
     .pipe($.webp({ lossless: true }))
     .pipe(gulp.dest(tmpOutput));
@@ -28,7 +29,7 @@ function pngToWebp() {
 
 function minifyImages() {
   return gulp
-    .src(`${imageInput}.{png,jpg,jpeg,gif}`)
+    .src(`${src}.{png,jpg,jpeg,gif}`)
     .pipe($.newer(tmpOutput))
     .pipe($.imagemin([
       $.imagemin.jpegtran({ progressive: true }),
@@ -48,20 +49,20 @@ function resizeImages() {
 function copyImagesToDist() {
   return gulp
     .src(`${tmpOutput2}/**/*`)
-    .pipe(gulp.dest(imageOutput));
+    .pipe(gulp.dest(build));
 }
 
 function copySvgToDist() {
   return gulp
-    .src(`${imageInput}/**/*.svg`)
-    .pipe(gulp.dest(imageOutput));
+    .src(`${src}/**/*.svg`)
+    .pipe(gulp.dest(build));
 }
 
-const images = gulp.series(
+const compileImages = gulp.series(
   gulp.parallel(jpegToWebp, pngToWebp, minifyImages),
   gulp.parallel(resizeImages),
   gulp.parallel(copyImagesToDist, copySvgToDist)
 );
 
-exports.src = imageInput;
-exports.default = images;
+exports.src = src;
+exports.default = compileImages;

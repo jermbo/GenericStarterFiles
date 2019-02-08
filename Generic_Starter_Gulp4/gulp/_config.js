@@ -1,24 +1,39 @@
 const yargs = require("yargs");
-const env = process.env.NODE_ENV;
-const port = process.env.PORT || 3000;
 
-const isDev = env === "development";
-const isProd = env === "production";
-const isTest = env === "test";
-
+const srcPath = "./src";
+const buildPath = "./build";
+const tmpPath = "./_tmp";
 const siteInstanceName = "./";
 
 module.exports = {
-  env,
-  isDev,
-  isProd,
-  isTest,
-  input: "./src",
-  output: "./build",
-  imageSizes: [400, 900, 1300],
+  srcPath,
+  buildPath,
+  tmpPath,
+  siteInstanceName,
+  env: process.env.ENV,
+  html: {
+    source: `${srcPath}/**/*.{html,htm,php,cshtml}`,
+    build: `${buildPath}/`,
+  },
+  styles: {
+    source: `${srcPath}/sass/**/*.{sass,scss,css}`,
+    build: `${buildPath}/styles/`,
+  },
+  scripts: {
+    source: `${srcPath}/scripts/**/*.js`,
+    build: `${buildPath}/scripts/`,
+  },
+  images: {
+    source: `${srcPath}/images/**/*`,
+    build: `${buildPath}/images/`,
+    sizes: [400, 900, 1300],
+  },
+
+
+  port: yargs.port ? yargs.port : process.env.PORT || 3000,
   devURL: yargs.url ? yargs.url : siteInstanceName,
-  browserSync: {
-    port: port,
+
+  browserSyncSettings: {
     ghostMode: {
       clicks: true,
       location: true,

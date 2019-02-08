@@ -1,10 +1,10 @@
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
 
-const { input, output } = require("./_config");
+const { styles } = require("./_config");
 
-const src = `${input}/sass/**/*.{scss,sass}`;
-const dest = `${output}/css`;
+const src = styles.source;
+const build = styles.build;
 
 function sass() {
   return gulp
@@ -14,7 +14,7 @@ function sass() {
     .pipe($.autoprefixer({ browsers: ["last 2 versions"], grid: false }))
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({title: "Styles"}))
-    .pipe(gulp.dest(dest));
+    .pipe(gulp.dest(build));
 }
 
 exports.src = src;

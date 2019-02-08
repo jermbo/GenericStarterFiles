@@ -1,17 +1,17 @@
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
 
-const { input, output } = require("./_config");
+const { html } = require("./_config");
 
-const src = `${input}/**/*.{html,htm,php,cshtml}`;
-const dest = `${output}`;
+const src = html.source;
+const build = html.build;
 
-function html() {
+function compileHTML() {
   return gulp
     .src(src)
-    .pipe($.changed(dest))
-    .pipe(gulp.dest(dest));
+    .pipe($.changed(build))
+    .pipe(gulp.dest(build));
 }
 
 exports.src = src;
-exports.default = html;
+exports.default = compileHTML;
