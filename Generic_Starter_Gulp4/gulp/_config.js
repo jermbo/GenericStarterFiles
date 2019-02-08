@@ -10,7 +10,5 @@ module.exports = {
   isTest,
   input: "./src",
   output: "./build",
-  scssDir: "./src/sass",
-  jsDir: "./src/scripts",
   imageSizes: [400, 900, 1300]
 };
