@@ -8,7 +8,7 @@ const {input, output, imageSizes } = require("./_config");
 const imageInput = `${input}/images/**/*`;
 const tmpOutput = "./_tmp/minified";
 const tmpOutput2 = "./_tmp/resized";
-const imageOutPut = `${output}/images`;
+const imageOutput = `${output}/images`;
 
 function jpegToWebp () {
   return gulp
@@ -45,10 +45,22 @@ function resizeImages() {
   });
 }
 
+function copyImagesToDist() {
+  return gulp
+    .src(`${tmpOutput2}/**/*`)
+    .pipe(gulp.dest(imageOutput));
+}
+
+function copySvgToDist() {
+  return gulp
+    .src(`${imageInput}/**/*.svg`)
+    .pipe(gulp.dest(imageOutput));
+}
+
 const images = gulp.series(
   gulp.parallel(jpegToWebp, pngToWebp, minifyImages),
   gulp.parallel(resizeImages),
-  // gulp.parallel(copyImagesToDist, copySvgToDist, copyFaviconsToDist)
+  gulp.parallel(copyImagesToDist, copySvgToDist)
 );
 
 
