@@ -1,5 +1,7 @@
 const yargs = require("yargs");
 
+const env = process.env.ENV;
+
 const srcPath = "./src";
 const buildPath = "./build";
 const tmpPath = "./_tmp";
@@ -10,7 +12,7 @@ module.exports = {
   buildPath,
   tmpPath,
   siteInstanceName,
-  env: process.env.ENV,
+  env,
   html: {
     source: `${srcPath}/**/*.{html,htm,php,cshtml}`,
     build: `${buildPath}/`,
@@ -18,6 +20,10 @@ module.exports = {
   styles: {
     source: `${srcPath}/sass/**/*.{sass,scss,css}`,
     build: `${buildPath}/styles/`,
+    options: {
+      sass: {outputStyle: "compressed"},
+      autoPrefixer: { browsers: ["last 4 versions"], grid: false },
+    },
   },
   scripts: {
     source: `${srcPath}/scripts/**/*.js`,
@@ -26,14 +32,15 @@ module.exports = {
   images: {
     source: `${srcPath}/images/**/*`,
     build: `${buildPath}/images/`,
-    sizes: [400, 900, 1300],
+    options: {
+      sizes: [400, 900, 1300]
+    },
   },
 
-
-  port: yargs.port ? yargs.port : process.env.PORT || 3000,
   devURL: yargs.url ? yargs.url : siteInstanceName,
 
   browserSyncSettings: {
+    port: yargs.port ? yargs.port : process.env.PORT || 3000,
     ghostMode: {
       clicks: true,
       location: true,

@@ -6,16 +6,16 @@ const { styles } = require("./_config");
 const src = styles.source;
 const build = styles.build;
 
-function sass() {
+function compileStyles() {
   return gulp
     .src(src)
     .pipe($.sourcemaps.init())
-    .pipe($.sass({ style: "compressed" }))
-    .pipe($.autoprefixer({ browsers: ["last 2 versions"], grid: false }))
+    .pipe($.sass(styles.options.sass))
+    .pipe($.autoprefixer(styles.options.autoPrefixer))
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({title: "Styles"}))
     .pipe(gulp.dest(build));
 }
 
 exports.src = src;
-exports.default = sass;
+exports.default = compileStyles;

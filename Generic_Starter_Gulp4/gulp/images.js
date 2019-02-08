@@ -6,7 +6,7 @@ const { images, tmpPath } = require("./_config");
 
 const src = images.source;
 const build = images.build;
-const imageSizes = images.sizes;
+const imageSizes = images.options.sizes;
 
 const tmpOutput = `${tmpPath}/minified`;
 const tmpOutput2 = `${tmpPath}/resized`;

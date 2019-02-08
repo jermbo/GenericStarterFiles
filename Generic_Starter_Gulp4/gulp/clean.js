@@ -1,12 +1,12 @@
 const { buildPath, tmpPath } = require("./_config");
 const del = require("del");
 
-const cleanAll = () => {
+function cleanAll() {
   return del([
     buildPath,
     tmpPath
   ]);
-};
+}
 
 function cleanTmp() {
   return del([
