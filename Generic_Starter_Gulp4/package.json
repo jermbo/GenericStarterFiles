@@ -10,19 +10,19 @@
     "compile": "./node_modules/.bin/gulp compile-project"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/register": "^7.0.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "@zellwk/resize-images": "^1.1.1",
     "babelify": "^10.0.0",
     "browser-sync": "^2.26.3",
     "browserify": "^16.2.3",
     "browserify-shim": "^3.8.14",
-    "del": "^3.0.0",
-    "dotenv": "^6.2.0",
-    "eslint": "^5.13.0",
+    "del": "^4.1.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
@@ -38,13 +38,13 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-size": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.4",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
-    "gulp-uglify": "^3.0.1",
+    "gulp-uglify": "^3.0.2",
     "gulp-uglifycss": "^1.1.0",
     "gulp-webp": "^4.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "yargs": "^12.0.5"
+    "yargs": "^13.2.2"
   }
 }
