@@ -1,10 +1,10 @@
 const browserSync = require("browser-sync").create();
-const {siteInstanceName, browserSyncSettings, buildPath} = require("./_config");
+const { siteInstanceName, browserSyncSettings, buildPath } = require("./_config");
 
 function startServer(next) {
-  if( siteInstanceName == "./") {
+  if (siteInstanceName == "./") {
     browserSyncSettings["server"] = {
-      baseDir: buildPath
+      baseDir: buildPath,
     };
   } else {
     browserSyncSettings["proxy"] = siteInstanceName;
@@ -15,12 +15,12 @@ function startServer(next) {
   next();
 }
 
-function reload(next){
+function reload(next) {
   browserSync.reload();
   next();
 }
 
-function stream(next){
+function stream(next) {
   browserSync.stream();
   next();
 }

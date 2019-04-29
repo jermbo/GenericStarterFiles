@@ -21,7 +21,7 @@ module.exports = {
     source: `${srcPath}/sass/**/*.{sass,scss,css}`,
     build: `${buildPath}/styles/`,
     options: {
-      sass: {outputStyle: "compressed"},
+      sass: { outputStyle: "compressed" },
       autoPrefixer: { browsers: ["last 4 versions"], grid: false },
     },
   },
@@ -33,7 +33,7 @@ module.exports = {
     source: `${srcPath}/images/**/*`,
     build: `${buildPath}/images/`,
     options: {
-      sizes: [400, 900, 1300]
+      sizes: [400, 900, 1300],
     },
   },
 
@@ -50,5 +50,5 @@ module.exports = {
     injectChanges: true,
     notify: true,
     reloadDelay: 0,
-  }
+  },
 };

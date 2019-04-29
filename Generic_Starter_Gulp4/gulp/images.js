@@ -11,7 +11,7 @@ const imageSizes = images.options.sizes;
 const tmpOutput = `${tmpPath}/minified`;
 const tmpOutput2 = `${tmpPath}/resized`;
 
-function jpegToWebp () {
+function jpegToWebp() {
   return gulp
     .src(`${src}.{jpeg,jpg}`)
     .pipe($.newer({ dest: tmpOutput, ext: ".webp" }))
@@ -31,10 +31,7 @@ function minifyImages() {
   return gulp
     .src(`${src}.{png,jpg,jpeg,gif}`)
     .pipe($.newer(tmpOutput))
-    .pipe($.imagemin([
-      $.imagemin.jpegtran({ progressive: true }),
-      $.imagemin.optipng({ optimizationLevel: 5 })
-    ]))
+    .pipe($.imagemin([$.imagemin.jpegtran({ progressive: true }), $.imagemin.optipng({ optimizationLevel: 5 })]))
     .pipe(gulp.dest(tmpOutput));
 }
 
@@ -42,26 +39,22 @@ function resizeImages() {
   return resizer({
     inputDir: tmpOutput,
     outputDir: tmpOutput2,
-    outputSizes: imageSizes
+    outputSizes: imageSizes,
   });
 }
 
 function copyImagesToDist() {
-  return gulp
-    .src(`${tmpOutput2}/**/*`)
-    .pipe(gulp.dest(build));
+  return gulp.src(`${tmpOutput2}/**/*`).pipe(gulp.dest(build));
 }
 
 function copySvgToDist() {
-  return gulp
-    .src(`${src}/**/*.svg`)
-    .pipe(gulp.dest(build));
+  return gulp.src(`${src}/**/*.svg`).pipe(gulp.dest(build));
 }
 
 const compileImages = gulp.series(
   gulp.parallel(jpegToWebp, pngToWebp, minifyImages),
   gulp.parallel(resizeImages),
-  gulp.parallel(copyImagesToDist, copySvgToDist)
+  gulp.parallel(copyImagesToDist, copySvgToDist),
 );
 
 exports.src = src;

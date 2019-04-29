@@ -15,7 +15,7 @@ function compileStyles() {
     .pipe($.sass(styles.options.sass))
     .pipe($.autoprefixer(styles.options.autoPrefixer))
     .pipe($.sourcemaps.write("./"))
-    .pipe($.size({title: "Styles"}))
+    .pipe($.size({ title: "Styles" }))
     .pipe(gulp.dest(build));
 }
 

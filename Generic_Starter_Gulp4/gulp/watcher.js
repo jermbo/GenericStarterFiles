@@ -6,7 +6,7 @@ const { src: imgSrc, default: compileImages } = require("./images");
 const { src: htmlSrc, default: compileHTML } = require("./html");
 const { src: jsSrc, default: compileScripts } = require("./scripts");
 
-function watcher(){
+function watcher() {
   watch(sassSrc, series(compileStyles, reload));
   watch(imgSrc, series(compileImages, reload));
   watch(htmlSrc, series(compileHTML, reload));
