@@ -6,31 +6,31 @@
   "author": "Jeremy 'Jermbo' Lawson",
   "license": "MIT",
   "scripts": {
-    "dev": "./node_modules/.bin/gulp",
-    "compile": "./node_modules/.bin/gulp compile-project"
+    "dev": "gulp",
+    "compile": "gulp compile-project"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "@zellwk/resize-images": "^1.1.1",
     "babelify": "^10.0.0",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "browserify": "^16.2.3",
     "browserify-shim": "^3.8.14",
     "del": "^4.1.1",
-    "dotenv": "^7.0.0",
-    "eslint": "^5.16.0",
-    "gulp": "^4.0.1",
+    "dotenv": "^8.0.0",
+    "eslint": "^6.0.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
-    "gulp-changed": "^3.2.0",
+    "gulp-changed": "^4.0.0",
     "gulp-cssnano": "^2.1.3",
     "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-load-plugins": "^1.5.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-load-plugins": "^1.6.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^3.2.0",
     "gulp-options": "^1.1.1",
@@ -45,6 +45,6 @@
     "gulp-webp": "^4.0.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
-    "yargs": "^13.2.2"
+    "yargs": "^13.2.4"
   }
 }

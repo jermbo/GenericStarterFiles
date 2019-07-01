@@ -22,7 +22,6 @@ module.exports = {
     build: `${buildPath}/styles/`,
     options: {
       sass: { outputStyle: "compressed" },
-      autoPrefixer: { browsers: ["last 4 versions"], grid: false },
     },
   },
   scripts: {

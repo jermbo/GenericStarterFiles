@@ -13,7 +13,7 @@ function compileStyles() {
     .pipe($.sourcemaps.init())
     .pipe(plumber("Error running sass"))
     .pipe($.sass(styles.options.sass))
-    .pipe($.autoprefixer(styles.options.autoPrefixer))
+    .pipe($.autoprefixer())
     .pipe($.sourcemaps.write("./"))
     .pipe($.size({ title: "Styles" }))
     .pipe(gulp.dest(build));
