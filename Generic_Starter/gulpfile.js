@@ -7,10 +7,10 @@ const { default: html } = require("./gulp/html");
 const { default: styles } = require("./gulp/styles");
 const { default: scripts, bundle } = require("./gulp/scripts");
 const { cleanAll, cleanTmp } = require("./gulp/clean");
-// TODO : Look into why Images are not compiling after update
+const { default: images } = require("./gulp/images");
 
 exports.clean = cleanAll;
 
-exports.default = series(cleanAll, parallel(html, styles, scripts), cleanTmp, serve, watcher);
+exports.default = series(cleanAll, parallel(html, styles, scripts, images), cleanTmp, serve, watcher);
 
 exports.js = series(cleanAll, bundle);
