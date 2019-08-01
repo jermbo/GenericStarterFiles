@@ -1,1 +1,6 @@
-@import "base";
+@import 'standard/vars';
+@import 'mixins/mixins';
+@import 'standard/normalize';
+@import 'standard/grid';
+
+@import 'base';
