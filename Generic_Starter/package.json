@@ -15,7 +15,6 @@
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
     "@babel/preset-env": "^7.7.5",
     "@babel/register": "^7.7.4",
-    "@zellwk/resize-images": "^1.1.1",
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
     "dotenv": "^8.2.0",

@@ -1,12 +1,10 @@
 const gulp = require("gulp");
 const $ = require("gulp-load-plugins")({ lazy: true });
-const resizer = require("@zellwk/resize-images");
 
 const { images, tmpPath } = require("./_config");
 
 const src = images.source;
 const build = images.build;
-const imageSizes = images.options.sizes;
 
 const tmpOutput = `${tmpPath}/minified`;
 const tmpOutput2 = `${tmpPath}/resized`;
@@ -35,14 +33,6 @@ function minifyImages() {
     .pipe(gulp.dest(tmpOutput));
 }
 
-function resizeImages() {
-  return resizer({
-    inputDir: tmpOutput,
-    outputDir: tmpOutput2,
-    outputSizes: imageSizes,
-  });
-}
-
 function copyImagesToDist() {
   return gulp.src(`${tmpOutput2}/**/*`).pipe(gulp.dest(build));
 }
@@ -53,7 +43,6 @@ function copySvgToDist() {
 
 const compileImages = gulp.series(
   gulp.parallel(jpegToWebp, pngToWebp, minifyImages),
-  gulp.parallel(resizeImages),
   gulp.parallel(copyImagesToDist, copySvgToDist),
 );
 
