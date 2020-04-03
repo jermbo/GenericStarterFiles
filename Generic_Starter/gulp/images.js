@@ -26,11 +26,21 @@ function pngToWebp() {
 }
 
 function minifyImages() {
+  const imgOpts = [
+    $.imagemin.gifsicle({ interlaced: true }),
+    $.imagemin.mozjpeg({ quality: 75, progressive: true }),
+    $.imagemin.optipng({ optimizationLevel: 5 }),
+    $.imagemin.svgo({
+      plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+    }),
+  ];
+
   return gulp
     .src(`${src}.{png,jpg,jpeg,gif}`)
     .pipe($.newer(tmpOutput))
-    .pipe($.imagemin([$.imagemin.jpegtran({ progressive: true }), $.imagemin.optipng({ optimizationLevel: 5 })]))
-    .pipe(gulp.dest(tmpOutput));
+    .pipe($.imagemin(imgOpts))
+    .pipe(gulp.dest(tmpOutput))
+    .pipe(gulp.dest(build));
 }
 
 function copyImagesToDist() {
@@ -38,7 +48,7 @@ function copyImagesToDist() {
 }
 
 function copySvgToDist() {
-  return gulp.src(`${src}/**/*.svg`).pipe(gulp.dest(build));
+  return gulp.src(`${src}.svg`).pipe(gulp.dest(build));
 }
 
 const compileImages = gulp.series(
